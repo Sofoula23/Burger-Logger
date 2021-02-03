@@ -17,10 +17,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
         const newSleep = e.target.getAttribute('data-newsleep');
 
         const newSleepState = {
-          sleepy: newSleep,
+          devoured: newSleep,
         };
 
-        fetch(`/api/cats/${id}`, {
+        fetch(`/api/burgers/${id}`, {
           method: 'PUT',
           headers: {
             Accept: 'application/json',
@@ -44,20 +44,20 @@ document.addEventListener('DOMContentLoaded', (event) => {
   }
 
   // CREATE
-  const createCatBtn = document.getElementById('create-form');
+  const createBurgerBtn = document.getElementById('create-form');
 
-  if (createCatBtn) {
-    createCatBtn.addEventListener('submit', (e) => {
+  if (createBurgerBtn) {
+    createBurgerBtn.addEventListener('submit', (e) => {
       e.preventDefault();
 
       // Grabs the value of the textarea that goes by the name, "quote"
-      const newCat = {
+      const newBurger = {
         name: document.getElementById('ca').value.trim(),
-        sleepy: document.getElementById('sleepy').checked,
+        devoured: document.getElementById('devoured').checked,
       };
 
       // Send POST request to create a new quote
-      fetch('/api/cats', {
+      fetch('/api/burgers', {
         method: 'POST',
         headers: {
           Accept: 'application/json',
@@ -65,13 +65,13 @@ document.addEventListener('DOMContentLoaded', (event) => {
         },
 
         // make sure to serialize the JSON body
-        body: JSON.stringify(newCat),
+        body: JSON.stringify(newBurger),
       }).then(() => {
         // Empty the form
         document.getElementById('ca').value = '';
 
         // Reload the page so the user can see the new quote
-        console.log('Created a new cat!');
+        console.log('Created a new Burger!');
         location.reload();
       });
     });
