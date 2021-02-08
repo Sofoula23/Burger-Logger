@@ -8,17 +8,21 @@ document.addEventListener('DOMContentLoaded', (event) => {
   const changeBurgerBtns = document.querySelectorAll('.change-burger');
 
   // Set up the event listener for the create button
-  if (changeBurgerBtns) {
+   
     changeBurgerBtns.forEach((button) => {
       button.addEventListener('click', (e) => {
-        console.log('test');
+       debugger 
         // Grabs the id of the element that goes by the name, "id"
         const id = e.target.getAttribute('data-id');
-        const newBurger = e.target.getAttribute('data-newburger');
-
+        let newBurger = e.target.getAttribute('data-newburger');
+        
+        if (newBurger === '0') {
+          newBurger = 1;
+        }
         const newBurgerStatus = {
           devoured: newBurger,
         };
+
 
         fetch(`/api/burgers/${id}`, {
           method: 'PUT',
@@ -41,7 +45,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         });
       });
     });
-  }
+  
 
   // CREATE
   const createBurgerBtn = document.getElementById('create-form');
@@ -53,7 +57,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
       // Grabs the value of the textarea that goes by the name, "quote"
       const newBurger = {
         name: document.getElementById('ca').value.trim(),
-        devoured: document.getElementById('name'),
+        devoured: 0,
       };
 
       // Send POST request to create a new quote

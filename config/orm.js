@@ -47,6 +47,7 @@ const orm = {
     });
   },
   create(table, cols, vals, cb) {
+    console.log(table, vals, cb);
     let queryString = `INSERT INTO ${table}`;
 
     queryString += ' (';

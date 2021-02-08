@@ -1,3 +1,4 @@
+
 li {
   padding: 5px;
   margin: 5px;
@@ -16,4 +17,11 @@ li {
 
 .form-group {
   margin-bottom: 5px;
+}
+
+body {
+  /* background: url('/public/assets/images/deliciousburger.jpg'); */
+  background-image: url("https://wallpapercave.com/wp/wp1987065.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
 }

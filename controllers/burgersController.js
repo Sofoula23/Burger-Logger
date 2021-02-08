@@ -9,7 +9,7 @@ const burger = require('../models/burger.js');
 router.get('/', (req, res) => {
   burger.all((data) => {
     const hbsObject = {
-      burger: data,
+      burgers: data,
     };
     console.log(hbsObject);
     res.render('index', hbsObject);
@@ -24,6 +24,7 @@ router.post('/api/burgers', (req, res) => {
 });
 
 router.put('/api/burgers/:id', (req, res) => {
+  console.log('kelo')
   const condition = `id = ${req.params.id}`;
 
   console.log('condition', condition);
@@ -34,7 +35,8 @@ router.put('/api/burgers/:id', (req, res) => {
     },
     condition,
     (result) => {
-      if (result.changedRows == 0) {
+      console.log(result);
+      if (result.affectedRows === 0) {
         // If no rows were changed, then the ID must not exist, so 404
         return res.status(404).end();
       }

@@ -3,6 +3,9 @@ var PORT = process.env.PORT || 8080;
 var app = express();
 var hbs = require("hbs");
 const path = require("path");
+
+//Add background image
+app.use(express.static('public/assets/images'));
 // Serve static content for the app from the "public" directory in the application directory.
 app.use(express.static("public"));
 // app.use(express.static('views/images')); 
