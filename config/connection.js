@@ -8,7 +8,7 @@ if (process.env.JAWSDB_URL) {
     host: 'localhost',
     user: 'root',
     password: 'rootroot',
-    database: 'todoagain_db',
+    database: 'burger_db',
   });
 };
 
